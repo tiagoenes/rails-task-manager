@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <div class="content">
+    <h1 class="title">Your list of tasks</h1>
+    <ul class="tasks-list">
+      <% @tasks.each do |task| %>
+      <form action="tasks/<%= task.id %>/<%= task.completed %>" id="form<%= task.id%>">
+        <li class="task"><i class="far fa-<%= task.completed ? 'check-' : '' %>square"></i> <%= link_to "#{task.title} -  #{task.details} --#{task.completed}", task_path(task.id) %>
+        </li>
+      </form>
+      <% end %>
+    </ul>
+    <div class="new-task">
+      <%= link_to 'Create a new task', new_task_path %>
+    </div>
+  </div>
+</div>

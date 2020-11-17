@@ -1,0 +1,13 @@
+
+<div class="container text-center">
+  <div class="content">
+    <h1><%= @task.title %></h1>
+    <div><%= link_to 'Edit task', edit_task_path %></div>
+    <div><%= link_to 'Delete task', task_path, method: :delete %></div>
+    <div class="details"><%= @task.details %></div>
+    <div class="completed">
+        <div><i class="far fa-<%= @task.completed ? 'check-' : '' %>square"></i>This task if <%= @task.completed ? '' : 'not' %> completed</div>
+      </div>
+  </div>
+  <div><%= link_to 'Back to the task', tasks_path(@task.id) %> </div>
+</div>
